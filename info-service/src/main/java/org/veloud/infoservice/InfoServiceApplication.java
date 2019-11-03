@@ -1,13 +1,13 @@
-package org.veloud.ratingservice;
+package org.veloud.infoservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoApplication {
+public class InfoServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(InfoServiceApplication.class, args);
 	}
 
 }
