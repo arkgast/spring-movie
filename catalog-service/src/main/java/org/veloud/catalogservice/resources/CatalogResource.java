@@ -23,7 +23,7 @@ public class CatalogResource {
     public List<CatalogItem> getCatalog(@PathVariable("userId") String userId) {
         UserRating userRating = webClientBuilder.build()
             .get()
-            .uri("http://localhost:8083/ratingsdata/users/" + userId)
+            .uri("http://rating-service/ratingsdata/users/" + userId)
             .retrieve()
             .bodyToFlux(UserRating.class)
             .blockLast();
@@ -31,7 +31,7 @@ public class CatalogResource {
         return userRating.getUserRating()
             .stream()
             .map(rating -> {
-                String url = "http://localhost:8082/movies/";
+                String url = "http://info-service/movies/";
 
                 Movie movie = webClientBuilder.build()
                     .get()
