@@ -16,10 +16,13 @@ Microservices with springboot framework
 
 Each microservice runs in a different port:
 
-*catalog service* -> 8081
-*info service*    -> 8082
-*rating service* -> 8083
+*catalog service*   -> 8081
+*info service*      -> 8082
+*rating service*    -> 8083
+*discovery-server*  -> 8761
 
-    $ ./gradlew bootRUn
+    $ ./gradlew bootRun
 
 > run the command above inside each microservice folder
+
+Once discovery server (Eureka) is up and running it will show all services that are registerd.
