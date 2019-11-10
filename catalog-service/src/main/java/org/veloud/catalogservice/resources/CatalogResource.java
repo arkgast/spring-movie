@@ -3,6 +3,7 @@ package org.veloud.catalogservice.resources;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +20,9 @@ public class CatalogResource {
     @Autowired
     private WebClient.Builder webClientBuilder;
 
+    @Autowired
+    private Logger logger;
+
     @GetMapping(path="/{userId}")
     public List<CatalogItem> getCatalog(@PathVariable("userId") String userId) {
         UserRating userRating = webClientBuilder.build()
@@ -32,6 +36,8 @@ public class CatalogResource {
             .stream()
             .map(rating -> {
                 String url = "http://info-service/movies/";
+
+                logger.info(rating.toString());
 
                 Movie movie = webClientBuilder.build()
                     .get()

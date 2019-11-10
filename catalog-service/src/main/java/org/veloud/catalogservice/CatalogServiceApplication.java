@@ -1,5 +1,7 @@
 package org.veloud.catalogservice;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
@@ -14,6 +16,11 @@ public class CatalogServiceApplication {
     @LoadBalanced
     public WebClient.Builder getWebClientBuilder() {
         return WebClient.builder();
+    }
+
+    @Bean
+    public Logger getLogger() {
+        return LoggerFactory.getLogger(CatalogServiceApplication.class);
     }
 
     public static void main(String[] args) {
